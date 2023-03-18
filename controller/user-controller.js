@@ -24,7 +24,7 @@ export const loginUser = async (req, res) => {
         let user = await User.findOne({ email });
         if (user) {
             if (user.password === password) {
-                res.json({ success: "Login Successfully" });
+                res.json({ success: "Login Successfully", user });
             } else {
                 res.status(401).json({ error: `Password did't matched` });
             }
